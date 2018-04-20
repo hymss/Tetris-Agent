@@ -6,7 +6,7 @@ public class PlayerSkeleton {
 	private StateSimulator simulator;
 
 	public PlayerSkeleton() {
-			simulator = new StateSimulator();
+		simulator = new StateSimulator();
 	}
 
 	//implement this function to have a working system
@@ -180,6 +180,13 @@ public class PlayerSkeleton {
 		//return super.makeMove(orient, slot);
 	}
 
+	public static class NewField {
+		public int[][] field;
+		public int[] top;
+		public int height;
+		public int turn;
+	}
+
 	//gives legal moves for
 	public int[][] legalMoves() {
 		return legalMoves[nextPiece];
@@ -194,7 +201,7 @@ public class PlayerSkeleton {
 	public void makeMove(int[] move) {
 		makeMove(move[ORIENT],move[SLOT]);
 	}
-  
+
 	public static void main(String[] args) {
 		State s = new State();
 		new TFrame(s);
@@ -293,4 +300,3 @@ public class PlayerSkeleton {
 	}
 
 }
-

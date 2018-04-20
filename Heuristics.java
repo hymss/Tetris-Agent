@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.logging.Logger;
 
 public class Heuristics {
     private static boolean DEBUG = true;
@@ -16,7 +15,7 @@ public class Heuristics {
 
     // object variables
     private double[] weights = {
-        -30, -2, -3, -4, -100000000
+            -1.0503542047995074, 0.47039392324283114, -0.48250877932162395, 1.3639860944965947, -100000000
     };
 
     /// array to store the values for each feature, later to be multiplied by weights
@@ -26,11 +25,11 @@ public class Heuristics {
         features = new int[NUM_FEATURES];
     }
 
-    public void setWeights(double numHolesWeight, double heightDiffWeight, double maxHeightWeight, double rowsClearedWeight) {
-        weights[INDEX_NUMHOLES] = numHolesWeight;
-        weights[INDEX_HEIGHT_DIFF] = heightDiffWeight;
-        weights[INDEX_MAX_HEIGHT] = maxHeightWeight;
-        weights[INDEX_ROWS_CLEARED] = rowsClearedWeight;
+    public void setWeights(double[] weights) {
+        weights[INDEX_NUMHOLES] = weights[0];
+        weights[INDEX_HEIGHT_DIFF] = weights[1];
+        weights[INDEX_MAX_HEIGHT] = weights[2];
+        weights[INDEX_ROWS_CLEARED] = weights[3];
         weights[INDEX_LOST] = -100000000;
     }
 
@@ -87,4 +86,5 @@ public class Heuristics {
             System.out.println("maxHeight = " + maxHeight);
         return maxHeight;
     }
+
 }
